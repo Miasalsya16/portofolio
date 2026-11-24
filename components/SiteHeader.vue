@@ -95,6 +95,7 @@ onUnmounted(() => {
         >
           <span class="bar" />
           <span class="bar" />
+          <span class="bar" />
           <span class="sr">Menu</span>
         </button>
       </div>
