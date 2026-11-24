@@ -78,6 +78,7 @@ onUnmounted(() => {
       </nav>
 
       <div class="header-actions">
+        <LookSwitch />
         <ClientOnly>
           <span class="clock">{{ clock }}</span>
           <template #fallback>

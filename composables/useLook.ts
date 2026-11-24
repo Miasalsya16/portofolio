@@ -1,7 +1,7 @@
 export type Look = 'now' | 'ai'
 
 export function useLook() {
-  const look = useState<Look>('look', () => 'now')
+  const look = useState<Look>('look', () => 'ai')
 
   function apply(next: Look) {
     look.value = next

@@ -28,28 +28,34 @@ useSeoMeta({
 
 <template>
   <article>
-    <header v-rise class="case-hero band rise">
-      <NuxtLink class="back" to="/#karya">← Semua karya</NuxtLink>
-      <p class="kicker">{{ project.eyebrow }}</p>
-      <h1>{{ project.title }}</h1>
-      <p class="case-meta">
+    <header class="case-hero band">
+      <NuxtLink v-rise class="back rise" to="/#karya">← Semua karya</NuxtLink>
+      <p v-rise="70" class="kicker rise">{{ project.eyebrow }}</p>
+      <h1 v-rise="120" class="rise">{{ project.title }}</h1>
+      <p v-rise="180" class="case-meta rise">
         <span>{{ project.role }}</span>
         <span>{{ project.year }}</span>
       </p>
-      <p class="lead">{{ project.summary }}</p>
+      <p v-rise="240" class="lead rise">{{ project.summary }}</p>
     </header>
 
-    <div v-rise="80" class="sheet rise">
+    <div class="sheet">
       <div class="sheet-inner">
-        <UiMock class="wide-mock" :kind="project.mock" tall />
+        <div v-rise="40" class="rise case-stage">
+          <div class="case-float">
+            <UiMock class="wide-mock" :kind="project.mock" tall />
+          </div>
+        </div>
         <div class="case-layout">
           <div class="story">
-            <p v-for="(paragraph, index) in project.story" :key="index">{{ paragraph }}</p>
-            <p v-if="project.disclaimer" class="disclaimer">
+            <p v-for="(paragraph, index) in project.story" :key="index" v-rise="index * 90" class="rise">
+              {{ paragraph }}
+            </p>
+            <p v-if="project.disclaimer" v-rise="project.story.length * 90" class="disclaimer rise">
               <strong>Disclaimer.</strong> {{ project.disclaimer }}
             </p>
           </div>
-          <aside class="side">
+          <aside v-rise="80" class="side rise">
             <div>
               <h2>Cakupan</h2>
               <ul class="points">
@@ -68,9 +74,12 @@ useSeoMeta({
     </div>
 
     <div class="band">
-      <NuxtLink class="next" :to="`/karya/${next.slug}`">
+      <NuxtLink v-rise class="next rise" :to="`/karya/${next.slug}`">
         <span>Karya berikutnya</span>
-        <strong>{{ next.title }}</strong>
+        <strong>
+          {{ next.title }}
+          <span class="next-arrow" aria-hidden="true">→</span>
+        </strong>
       </NuxtLink>
     </div>
   </article>

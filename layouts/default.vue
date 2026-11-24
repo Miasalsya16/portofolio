@@ -6,6 +6,5 @@
     </main>
     <SiteFooter />
     <CvDialog />
-    <LookSwitch />
   </div>
 </template>

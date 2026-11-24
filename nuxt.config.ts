@@ -24,7 +24,7 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       script: [{
-        innerHTML: "document.documentElement.classList.add('js');try{if(localStorage.getItem('mia-look')==='ai')document.documentElement.classList.add('look-ai')}catch(e){}",
+        innerHTML: "document.documentElement.classList.add('js');try{if(localStorage.getItem('mia-look')!=='now')document.documentElement.classList.add('look-ai')}catch(e){}",
         tagPosition: 'head',
       }],
     },

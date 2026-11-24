@@ -868,12 +868,26 @@ section[id] { scroll-margin-top: calc(var(--header) + 12px); }
 .back:hover { color: var(--persimmon); }
 
 .case-hero h1 {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
   font-family: var(--sans);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.15;
   font-size: clamp(2rem, 3.4vw, 2.8rem);
   margin: 8px 0 16px;
+}
+
+.case-hero h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin-top: 12px;
+  background: var(--persimmon);
+  transform-origin: left;
+  animation: draw 0.7s 0.35s ease both;
 }
 
 .case-meta {
@@ -930,6 +944,42 @@ section[id] { scroll-margin-top: calc(var(--header) + 12px); }
 .side .points li { font-size: 0.98rem; }
 
 .wide-mock { margin-bottom: 8px; }
+
+.case-float { animation: floaty 6.5s ease-in-out infinite; }
+
+html.js .story .rise { transform: translateX(-14px); }
+html.js .story .rise.in { transform: none; }
+
+html.js .side.rise { transform: translateX(22px); }
+html.js .side.rise.in { transform: none; }
+
+html.js .side.rise .points li,
+html.js .side.rise .tags li {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+html.js .side.rise.in .points li,
+html.js .side.rise.in .tags li {
+  animation: rise-in 0.5s ease forwards;
+}
+
+html.js .side.rise.in .points li:nth-child(2),
+html.js .side.rise.in .tags li:nth-child(2) { animation-delay: 0.08s; }
+html.js .side.rise.in .points li:nth-child(3),
+html.js .side.rise.in .tags li:nth-child(3) { animation-delay: 0.16s; }
+html.js .side.rise.in .points li:nth-child(4),
+html.js .side.rise.in .tags li:nth-child(4) { animation-delay: 0.24s; }
+html.js .side.rise.in .points li:nth-child(5),
+html.js .side.rise.in .tags li:nth-child(5) { animation-delay: 0.32s; }
+html.js .side.rise.in .points li:nth-child(6),
+html.js .side.rise.in .tags li:nth-child(6) { animation-delay: 0.4s; }
+
+.next-arrow {
+  display: inline-block;
+  margin-left: 8px;
+  animation: nudge 1.5s ease-in-out infinite;
+}
 
 .next {
   display: flex;
@@ -1009,6 +1059,10 @@ section[id] { scroll-margin-top: calc(var(--header) + 12px); }
   to { opacity: 1; transform: none; }
 }
 
+@keyframes nudge {
+  50% { transform: translateX(7px); }
+}
+
 html.js .rise {
   opacity: 0;
   transform: translateY(16px);
@@ -1064,7 +1118,10 @@ html.js .rise.in {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  html.js .rise { opacity: 1; transform: none; }
+  html.js .rise,
+  html.js .side.rise .points li,
+  html.js .side.rise .tags li { opacity: 1; transform: none; }
+  .case-hero h1::after { transform: none; }
   *,
   *::before,
   *::after {
