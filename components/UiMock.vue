@@ -251,7 +251,24 @@ onUnmounted(() => {
   background: #070707;
 }
 
-.shot img { aspect-ratio: 1024 / 723; }
+.shot img { aspect-ratio: auto; object-fit: contain; background: transparent; }
+
+.mock.is-shot:not(:has(.is-video)) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.shot:not(.is-video) { background: transparent; }
+
+.shot:not(.is-video) figcaption {
+  position: static;
+  display: inline-flex;
+  width: fit-content;
+  margin: 12px 0 0;
+  background: #fffcf8;
+  border: 1px solid rgba(28, 25, 22, 0.12);
+}
 .shot video { aspect-ratio: 880 / 504; }
 
 .shot figcaption {
@@ -280,7 +297,9 @@ onUnmounted(() => {
 
 .shot-stage {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
+  justify-content: center;
   gap: 12px;
   min-width: 0;
   max-width: 100%;
@@ -296,8 +315,9 @@ onUnmounted(() => {
 }
 
 .shot.is-pair .shot-desk {
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 1 1 260px;
+  min-width: min(100%, 240px);
+  max-width: 100%;
   width: auto;
 }
 
