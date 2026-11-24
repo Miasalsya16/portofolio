@@ -15,13 +15,25 @@ const captions: Record<MockKind, string> = {
   learn: 'belajar / manasik',
 }
 
-const shots: Partial<Record<MockKind, { src: string; alt: string; caption: string; video?: boolean; poster?: string }>> = {
+const shots: Partial<Record<MockKind, {
+  src: string
+  alt: string
+  caption: string
+  video?: boolean
+  poster?: string
+  phone?: { src: string; poster: string; alt: string }
+}>> = {
   market: {
     src: '/shots/shiratha.mp4',
     poster: '/shots/shiratha.jpg',
-    alt: 'Beranda marketplace Shiratha: katalog paket umroh.',
-    caption: 'Shiratha',
+    alt: 'Marketplace Shiratha di layar laptop.',
+    caption: 'Shiratha · desktop & ponsel',
     video: true,
+    phone: {
+      src: '/shots/shiratha-phone.mp4',
+      poster: '/shots/shiratha-phone.jpg',
+      alt: 'Marketplace Shiratha di layar ponsel, digulir dari beranda.',
+    },
   },
   label: {
     src: '/shots/minala.png',
@@ -43,7 +55,7 @@ const shots: Partial<Record<MockKind, { src: string; alt: string; caption: strin
 }
 
 const tick = ref(0)
-const videoEl = ref<HTMLVideoElement | null>(null)
+const root = ref<HTMLElement | null>(null)
 let timer: ReturnType<typeof setInterval> | undefined
 let observer: IntersectionObserver | undefined
 
@@ -57,19 +69,28 @@ onMounted(() => {
     }, 2200)
   }
 
-  const video = videoEl.value
-  if (!video) return
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    video.pause()
+  const videos = root.value ? [...root.value.querySelectorAll('video')] : []
+  if (!videos.length) return
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const nudge = () => {
+    videos.forEach((video) => {
+      if (reduced) {
+        video.pause()
+        return
+      }
+      const box = video.getBoundingClientRect()
+      const visible = Math.max(0, Math.min(box.bottom, window.innerHeight) - Math.max(box.top, 0))
+      if (box.height > 0 && visible / box.height > 0.2) video.play().catch(() => {})
+      else video.pause()
+    })
+  }
+  if (reduced) {
+    nudge()
     return
   }
-  observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) video.play().catch(() => {})
-      else video.pause()
-    }
-  }, { threshold: 0.35 })
-  observer.observe(video)
+  observer = new IntersectionObserver(() => nudge(), { threshold: [0, 0.2, 0.6] })
+  videos.forEach((video) => observer?.observe(video))
+  requestAnimationFrame(nudge)
 })
 
 onUnmounted(() => {
@@ -79,20 +100,35 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="mock" :class="[`mock-${kind}`, { 'is-tall': tall, 'is-shot': !!shot }]" :aria-hidden="shot ? undefined : true">
-    <figure v-if="shot" class="shot" :class="{ 'is-video': shot.video }">
-      <video
-        v-if="shot.video"
-        ref="videoEl"
-        :src="shot.src"
-        :poster="shot.poster"
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        :aria-label="shot.alt"
-      />
-      <img v-else :src="shot.src" :alt="shot.alt" />
+  <div ref="root" class="mock" :class="[`mock-${kind}`, { 'is-tall': tall, 'is-shot': !!shot }]" :aria-hidden="shot ? undefined : true">
+    <figure v-if="shot" class="shot" :class="{ 'is-video': shot.video, 'is-pair': !!shot.phone }">
+      <div class="shot-stage">
+        <video
+          v-if="shot.video"
+          class="shot-desk"
+          :src="shot.src"
+          :poster="shot.poster"
+          muted
+          loop
+          playsinline
+          autoplay
+          preload="metadata"
+          :aria-label="shot.alt"
+        />
+        <img v-else :src="shot.src" :alt="shot.alt" />
+        <video
+          v-if="shot.phone"
+          class="shot-phone"
+          :src="shot.phone.src"
+          :poster="shot.phone.poster"
+          muted
+          loop
+          playsinline
+          autoplay
+          preload="metadata"
+          :aria-label="shot.phone.alt"
+        />
+      </div>
       <figcaption>{{ shot.caption }}</figcaption>
     </figure>
 
@@ -242,9 +278,35 @@ onUnmounted(() => {
   background: transparent;
 }
 
+.shot-stage {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.card-mock,
+.mock,
+.shot { min-width: 0; max-width: 100%; }
+
 .shot.is-video video {
   border-radius: 18px;
   box-shadow: 0 16px 40px rgba(16, 20, 16, 0.12);
+}
+
+.shot.is-pair .shot-desk {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+.shot.is-pair .shot-phone {
+  flex: 0 0 auto;
+  width: clamp(86px, 24%, 150px);
+  aspect-ratio: 320 / 650;
+  border-radius: 22px;
+  object-fit: cover;
 }
 
 .shot.is-video figcaption {
