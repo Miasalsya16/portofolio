@@ -149,7 +149,7 @@ onUnmounted(() => {
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">
-            <span>Frontend untuk</span>
+            <span>Frontend for</span>
             <span class="live-slot" aria-hidden="true">
               <span
                 v-for="(word, index) in words"
@@ -158,7 +158,7 @@ onUnmounted(() => {
                 :class="{ on: index === wordIndex }"
               >{{ word }}</span>
             </span>
-            <span class="sr">marketplace, whitelabel, dashboard, dan microsite</span>
+            <span class="sr">marketplace, whitelabel, dashboard, and microsite</span>
             <span class="eyebrow-place">· Jakarta</span>
           </p>
           <h1 class="name">
@@ -173,15 +173,15 @@ onUnmounted(() => {
           </div>
           <dl class="stats">
             <div>
-              <dt>Pengalaman</dt>
+              <dt>Experience</dt>
               <dd>3+</dd>
             </div>
             <div>
-              <dt>Proyek</dt>
+              <dt>Projects</dt>
               <dd>13+</dd>
             </div>
             <div>
-              <dt>Perusahaan</dt>
+              <dt>Companies</dt>
               <dd>2</dd>
             </div>
           </dl>
@@ -192,7 +192,7 @@ onUnmounted(() => {
             <Transition name="reel" mode="out-in">
               <div :key="reel[reelIndex]!.kind">
                 <p class="reel-label">
-                  <span>Sedang menampilkan</span>
+                  <span>Now showing</span>
                   <strong>{{ reel[reelIndex]!.label }}</strong>
                 </p>
                 <div class="reel-frame">
@@ -225,7 +225,7 @@ onUnmounted(() => {
     </div>
 
     <div class="logo-row">
-      <span>UI produksi di</span>
+      <span>Production UI at</span>
       <strong>PT Treetan Nusantara Network</strong>
       <strong>Makuta Communication</strong>
     </div>
@@ -234,13 +234,13 @@ onUnmounted(() => {
       <div class="sheet-inner">
         <div v-rise class="section-head rise">
           <div>
-            <p class="kicker">Karya</p>
-            <h2>Studi kasus yang paling dekat dengan kerjaan.</h2>
+            <p class="kicker">Work</p>
+            <h2>Case studies closest to the work.</h2>
           </div>
           <p>Enam dari 13+ proyek: marketplace, whitelabel, dashboard, microsite, plus satu prototipe belajar.</p>
         </div>
 
-        <div class="filters" role="toolbar" aria-label="Saring karya">
+        <div class="filters" role="toolbar" aria-label="Filter work">
           <button
             v-for="item in filters"
             :key="item.id"
@@ -275,7 +275,7 @@ onUnmounted(() => {
                 <li v-for="tag in project.stack.slice(0, 4)" :key="tag">{{ tag }}</li>
               </ul>
               <span class="more">
-                Lihat studi kasus
+                View case study
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
@@ -289,8 +289,8 @@ onUnmounted(() => {
     <section id="tentang" class="band">
       <div class="about-grid">
         <div v-rise class="about-copy rise">
-          <p class="kicker">Tentang</p>
-          <h2>Dari Figma ke komponen. Dari API ke layar.</h2>
+          <p class="kicker">About</p>
+          <h2>From Figma to components. From the API to the screen.</h2>
           <p class="lead">{{ profile.summary }}</p>
           <p>
             Kerja hariannya: memecah frame Figma jadi komponen Vue, menyambung REST API lewat Axios, dan menjaga
@@ -312,8 +312,8 @@ onUnmounted(() => {
 
     <section id="jejak" class="sheet">
       <div class="sheet-inner">
-        <p class="kicker">Jejak</p>
-        <h2>Dua perusahaan. Stack-nya tetap Vue.</h2>
+        <p class="kicker">Experience</p>
+        <h2>Two companies. The stack stays Vue.</h2>
         <ol class="timeline">
           <li v-for="(job, index) in experience" :key="job.company" v-rise="index * 80" class="job rise">
             <div class="when">
@@ -332,8 +332,8 @@ onUnmounted(() => {
     </section>
 
     <section id="keahlian" class="band">
-      <p class="kicker">Keahlian</p>
-      <h2>Stack yang benar-benar dipakai.</h2>
+      <p class="kicker">Skills</p>
+      <h2>The stack I actually use.</h2>
       <div class="bento">
         <article v-rise class="tile rise">
           <div v-for="group in skillGroups" :key="group.title" class="group">
@@ -344,7 +344,7 @@ onUnmounted(() => {
           </div>
         </article>
         <article v-rise="100" class="tile school rise">
-          <p class="kicker">Pendidikan</p>
+          <p class="kicker">Education</p>
           <p class="degree">{{ education.degree }}</p>
           <p>{{ education.school }}</p>
           <p>{{ education.when }}</p>
@@ -358,8 +358,8 @@ onUnmounted(() => {
 
     <section id="kontak" class="finale">
       <div v-rise class="sheet-inner rise">
-        <p class="kicker">Kontak</p>
-        <h2 class="display">Butuh frontend Vue atau Nuxt?</h2>
+        <p class="kicker">Contact</p>
+        <h2 class="display">Need a Vue or Nuxt frontend?</h2>
         <p class="finale-lead">
           Terbuka untuk peran Frontend. Domisili di {{ profile.location }}, lahir di {{ profile.birthplace }}. Balasan paling cepat lewat email atau WhatsApp.
         </p>

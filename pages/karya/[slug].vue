@@ -29,7 +29,7 @@ useSeoMeta({
 <template>
   <article>
     <header class="case-hero band">
-      <NuxtLink v-rise class="back rise" to="/#karya">← Semua karya</NuxtLink>
+      <NuxtLink v-rise class="back rise" to="/#karya">← All work</NuxtLink>
       <p v-rise="70" class="kicker rise">{{ project.eyebrow }}</p>
       <h1 v-rise="120" class="rise">{{ project.title }}</h1>
       <p v-rise="180" class="case-meta rise">
@@ -57,7 +57,7 @@ useSeoMeta({
           </div>
           <aside v-rise="80" class="side rise">
             <div>
-              <h2>Cakupan</h2>
+              <h2>Scope</h2>
               <ul class="points">
                 <li v-for="item in project.highlights" :key="item">{{ item }}</li>
               </ul>
@@ -75,7 +75,7 @@ useSeoMeta({
 
     <div class="band">
       <NuxtLink v-rise class="next rise" :to="`/karya/${next.slug}`">
-        <span>Karya berikutnya</span>
+        <span>Next project</span>
         <strong>
           {{ next.title }}
           <span class="next-arrow" aria-hidden="true">→</span>

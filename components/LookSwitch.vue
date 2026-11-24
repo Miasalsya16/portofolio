@@ -4,7 +4,7 @@ const { look, toggle } = useLook()
 
 <template>
   <button type="button" class="look-switch" :aria-pressed="look === 'ai'" @click="toggle">
-    Ganti tampilan
+    Switch look
   </button>
 </template>
 

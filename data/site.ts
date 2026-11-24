@@ -49,11 +49,11 @@ export const cvs = [
 ]
 
 export const nav = [
-  { href: '/#karya', label: 'Karya' },
-  { href: '/#tentang', label: 'Tentang' },
-  { href: '/#jejak', label: 'Jejak' },
-  { href: '/#keahlian', label: 'Keahlian' },
-  { href: '/#kontak', label: 'Kontak' },
+  { href: '/#karya', label: 'Work' },
+  { href: '/#tentang', label: 'About' },
+  { href: '/#jejak', label: 'Experience' },
+  { href: '/#keahlian', label: 'Skills' },
+  { href: '/#kontak', label: 'Contact' },
 ]
 
 export const marquee = [
@@ -68,15 +68,15 @@ export const marquee = [
   'SSR',
   'SEO',
   'Figma',
-  'Komponen reusable',
+  'Reusable components',
 ]
 
 export const filters = [
-  { id: 'semua', label: 'Semua' },
-  { id: 'produk', label: 'Produk' },
+  { id: 'semua', label: 'All' },
+  { id: 'produk', label: 'Product' },
   { id: 'dasbor', label: 'Dashboard' },
-  { id: 'kampanye', label: 'Kampanye' },
-  { id: 'belajar', label: 'Belajar' },
+  { id: 'kampanye', label: 'Campaign' },
+  { id: 'belajar', label: 'Learning' },
 ] as const
 
 export const projects: Project[] = [
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     slug: 'marketplace-treetan',
     title: 'Marketplace Treetan',
     eyebrow: 'B2B · Shiratha',
-    year: '2023 — Sekarang',
+    year: '2023 — Now',
     role: 'Frontend Developer',
     category: 'produk',
     mock: 'market',
@@ -108,8 +108,8 @@ export const projects: Project[] = [
   {
     slug: 'whitelabel-partner',
     title: 'Whitelabel Partner',
-    eyebrow: 'Satu codebase · multi-tenant',
-    year: '2023 — Sekarang',
+    eyebrow: 'One codebase · multi-tenant',
+    year: '2023 — Now',
     role: 'Frontend Developer',
     category: 'produk',
     mock: 'label',
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     slug: 'dasbor-operasional',
     title: 'Dasbor Operasional',
     eyebrow: 'Travel · TDC · Admin',
-    year: '2023 — Sekarang',
+    year: '2023 — Now',
     role: 'Frontend Developer',
     category: 'dasbor',
     mock: 'dash',
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     slug: 'microsite-pos',
     title: 'Microsite Pos Indonesia',
     eyebrow: 'Nuxt · SEO',
-    year: '2023 — Sekarang',
+    year: '2023 — Now',
     role: 'Frontend Developer',
     category: 'produk',
     mock: 'pos',
@@ -197,8 +197,8 @@ export const projects: Project[] = [
   {
     slug: 'simulasi-haji',
     title: 'Simulasi Ibadah Haji',
-    eyebrow: 'Alat belajar · internal',
-    year: 'Prototipe',
+    eyebrow: 'Learning tool · internal',
+    year: 'Prototype',
     role: 'Eksplorasi',
     category: 'belajar',
     mock: 'learn',
@@ -230,7 +230,7 @@ export const capabilities = [
     text: 'Axios mengambil katalog, pesanan, dan akun, lengkap dengan state loading dan error.',
   },
   {
-    title: 'Komponen reusable',
+    title: 'Reusable components',
     text: 'Satu komponen dipakai banyak route, termasuk list yang datanya panjang.',
   },
   {
@@ -238,7 +238,7 @@ export const capabilities = [
     text: 'Pinia dan Vuex menyimpan sesi login dan filter, jadi konteks tidak hilang saat pindah halaman.',
   },
   {
-    title: 'Performa & SEO',
+    title: 'Performance & SEO',
     text: 'SSR di Nuxt supaya HTML sudah terisi saat halaman dibuka, dan kontennya bisa diindeks.',
   },
 ]
@@ -247,7 +247,7 @@ export const experience = [
   {
     company: 'PT Treetan Nusantara Network',
     role: 'Frontend Developer',
-    when: 'Jan 2023 — Sekarang',
+    when: 'Jan 2023 — Now',
     points: [
       'Membangun UI marketplace: katalog, keranjang, checkout, dan dashboard seller dengan Vue.js, Nuxt.js, Axios, Tailwind CSS, dan SASS.',
       'Mengembangkan whitelabel: satu codebase, tema (logo, warna, menu) diganti per tenant dari API.',
@@ -259,7 +259,7 @@ export const experience = [
   {
     company: 'Makuta Communication',
     role: 'Frontend Developer',
-    when: 'Okt 2021 — Juni 2022',
+    when: 'Oct 2021 — Jun 2022',
     points: [
       'Membangun website iklan properti Estusae dan Grand Taman Sari.',
       'Mengembangkan aplikasi Vue sisi user (lihat iklan, order) dan admin (kelola iklan, approval, report), tersambung ke REST API.',
@@ -271,13 +271,13 @@ export const experience = [
 export const education = {
   degree: 'Diploma Manajemen Informatika',
   school: 'Universitas Nasional Pasim',
-  when: 'Sep 2019 — Okt 2022',
-  gpa: 'IPK 3,7',
+  when: 'Sep 2019 — Oct 2022',
+  gpa: 'GPA 3.7',
 }
 
 export const skillGroups = [
   {
-    title: 'Antarmuka',
+    title: 'Interface',
     items: ['Vue.js', 'Nuxt.js', 'JavaScript', 'TypeScript (dasar)', 'HTML5', 'CSS3', 'Tailwind CSS', 'SASS', 'Vuetify'],
   },
   {
@@ -285,11 +285,11 @@ export const skillGroups = [
     items: ['Pinia', 'Vuex', 'Axios', 'REST API'],
   },
   {
-    title: 'Alat',
+    title: 'Tools',
     items: ['VS Code', 'Git', 'Figma', 'Postman', 'Apidog', 'Mailtrap', 'Cursor', 'GitHub Copilot'],
   },
   {
-    title: 'Eksplorasi',
+    title: 'Exploration',
     items: ['Flutter', 'WordPress', 'Mixpanel'],
   },
 ]

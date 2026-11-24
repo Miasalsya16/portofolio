@@ -85,7 +85,7 @@ onUnmounted(() => {
             <span class="clock">{{ profile.location }}</span>
           </template>
         </ClientOnly>
-        <a class="btn btn-lime nav-cta" href="/#kontak" @click.prevent="go('/#kontak')">Halo</a>
+        <a class="btn btn-lime nav-cta" href="/#kontak" @click.prevent="go('/#kontak')">Hello</a>
         <button
           type="button"
           class="burger"
