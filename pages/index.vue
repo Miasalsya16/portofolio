@@ -225,7 +225,7 @@ onUnmounted(() => {
     </div>
 
     <div class="logo-row">
-      <span>Pernah merakit produk di</span>
+      <span>UI produksi di</span>
       <strong>PT Treetan Nusantara Network</strong>
       <strong>Makuta Communication</strong>
     </div>
@@ -235,9 +235,9 @@ onUnmounted(() => {
         <div v-rise class="section-head rise">
           <div>
             <p class="kicker">Karya</p>
-            <h2>Yang paling mewakili.</h2>
+            <h2>Studi kasus yang paling dekat dengan kerjaan.</h2>
           </div>
-          <p>Enam cerita dari 13+ proyek. Marketplace, whitelabel, dashboard, microsite, dan satu simulasi belajar.</p>
+          <p>Enam dari 13+ proyek: marketplace, whitelabel, dashboard, microsite, plus satu prototipe belajar.</p>
         </div>
 
         <div class="filters" role="toolbar" aria-label="Saring karya">
@@ -290,11 +290,11 @@ onUnmounted(() => {
       <div class="about-grid">
         <div v-rise class="about-copy rise">
           <p class="kicker">Tentang</p>
-          <h2>Setia ke desain. Rapi saat dirawat.</h2>
+          <h2>Dari Figma ke komponen. Dari API ke layar.</h2>
           <p class="lead">{{ profile.summary }}</p>
           <p>
-            Sehari-hari saya mengubah kerangka Figma menjadi komponen Vue, menyambungkan REST API, dan menjaga
-            halaman tetap enak dipakai walau datanya banyak. Situs ini sendiri berjalan di Nuxt 3 dan Vue 3.
+            Kerja hariannya: memecah frame Figma jadi komponen Vue, menyambung REST API lewat Axios, dan menjaga
+            list yang panjang tetap enak dipindai. Situs ini sendiri Nuxt 3 dan Vue 3.
             Lahir di {{ profile.birthplace }}. Sekarang berdomisili di {{ profile.location }}.
           </p>
         </div>
@@ -313,7 +313,7 @@ onUnmounted(() => {
     <section id="jejak" class="sheet">
       <div class="sheet-inner">
         <p class="kicker">Jejak</p>
-        <h2>Dua perusahaan, satu keahlian.</h2>
+        <h2>Dua perusahaan. Stack-nya tetap Vue.</h2>
         <ol class="timeline">
           <li v-for="(job, index) in experience" :key="job.company" v-rise="index * 80" class="job rise">
             <div class="when">
@@ -333,7 +333,7 @@ onUnmounted(() => {
 
     <section id="keahlian" class="band">
       <p class="kicker">Keahlian</p>
-      <h2>Alat yang memang saya pakai.</h2>
+      <h2>Stack yang benar-benar dipakai.</h2>
       <div class="bento">
         <article v-rise class="tile rise">
           <div v-for="group in skillGroups" :key="group.title" class="group">
@@ -352,16 +352,16 @@ onUnmounted(() => {
         </article>
       </div>
       <p class="note">
-        Di luar layar produksi Vue: aplikasi Flutter Shiratha Mitra, prototipe kantor virtual, dan simulasi belajar manasik. Simulasi itu alat internal, bukan aplikasi yang dipakai jamaah.
+        Di luar UI produksi Vue: aplikasi Flutter Shiratha Mitra, prototipe kantor virtual, dan simulasi belajar manasik di browser. Simulasi itu alat internal, bukan aplikasi jamaah.
       </p>
     </section>
 
     <section id="kontak" class="finale">
       <div v-rise class="sheet-inner rise">
         <p class="kicker">Kontak</p>
-        <h2 class="display">Mari rakit produk berikutnya.</h2>
+        <h2 class="display">Butuh frontend Vue atau Nuxt?</h2>
         <p class="finale-lead">
-          Terbuka untuk peran Frontend Vue dan Nuxt. Domisili di {{ profile.location }}, lahir di {{ profile.birthplace }}. Balasan paling enak lewat email atau WhatsApp.
+          Terbuka untuk peran Frontend. Domisili di {{ profile.location }}, lahir di {{ profile.birthplace }}. Balasan paling cepat lewat email atau WhatsApp.
         </p>
         <a class="mega-mail" :href="`mailto:${profile.email}`">{{ profile.email }}</a>
         <div class="finale-grid">
@@ -372,7 +372,7 @@ onUnmounted(() => {
             </label>
             <label class="field">
               <span>Pesan</span>
-              <textarea v-model="message" name="pesan" rows="4" required placeholder="Cerita singkat soal produknya" />
+              <textarea v-model="message" name="pesan" rows="4" required placeholder="Produknya soal apa, dan stack-nya apa" />
             </label>
             <button class="btn btn-ink" type="submit">Kirim lewat email</button>
           </form>

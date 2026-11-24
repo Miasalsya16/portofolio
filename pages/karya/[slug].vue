@@ -51,7 +51,7 @@ useSeoMeta({
           </div>
           <aside class="side">
             <div>
-              <h2>Yang saya kerjakan</h2>
+              <h2>Cakupan</h2>
               <ul class="points">
                 <li v-for="item in project.highlights" :key="item">{{ item }}</li>
               </ul>

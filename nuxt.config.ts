@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'Portofolio Mia Salha Syakila, Frontend Developer Vue.js dan Nuxt.js di Jakarta. Lahir di Garut. Marketplace, whitelabel, dashboard, dan microsite.',
+            'Portofolio Mia Salha Syakila, Frontend Developer Vue.js dan Nuxt.js di Jakarta. Lahir di Garut. Marketplace, whitelabel, dashboard, dan microsite — UI dari Figma, data dari REST API.',
         },
         { name: 'theme-color', content: '#f7f4ef' },
         { property: 'og:title', content: 'Mia Salha Syakila — Frontend Developer' },
