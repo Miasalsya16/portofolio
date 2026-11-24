@@ -169,6 +169,7 @@ onUnmounted(() => {
           <div class="hero-actions">
             <a class="btn btn-lime" href="#karya">Lihat karya</a>
             <button type="button" class="btn btn-line" @click="showCv()">Lihat CV</button>
+            <a class="btn btn-line" :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
           <dl class="stats">
             <div>
@@ -378,8 +379,10 @@ onUnmounted(() => {
           <div class="direct">
             <a :href="`tel:${profile.phoneTel}`">{{ profile.phoneDisplay }}</a>
             <a :href="profile.whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <button type="button" class="text-link" @click="showCv()">Lihat CV</button>
+            <div class="direct-pair">
+              <button type="button" class="text-link" @click="showCv()">Lihat CV</button>
+              <a :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
           </div>
         </div>
       </div>

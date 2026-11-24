@@ -813,6 +813,14 @@ section[id] { scroll-margin-top: calc(var(--header) + 12px); }
 .direct a { text-decoration: none; font-weight: 560; }
 .direct a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
+.direct-pair,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -826,6 +834,8 @@ section[id] { scroll-margin-top: calc(var(--header) + 12px); }
 }
 
 .site-footer p { margin: 0; }
+.site-footer .footer-links a { text-decoration: none; font-weight: 560; }
+.site-footer .footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .site-footer a,
 .site-footer .text-link { color: var(--text); }
 

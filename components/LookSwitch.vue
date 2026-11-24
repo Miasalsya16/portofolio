@@ -13,7 +13,7 @@ const { look, toggle } = useLook()
   position: fixed;
   z-index: 70;
   right: 16px;
-  bottom: 16px;
+  bottom: 76px;
   min-height: 40px;
   padding: 0 14px;
   border-radius: 999px;

@@ -9,6 +9,9 @@ const { show } = useCv()
   <footer class="site-footer">
     <p>© {{ year }} {{ profile.name }}</p>
     <p>Nuxt 3 · Vue 3 · {{ profile.location }}</p>
-    <p><button type="button" class="text-link" @click="show()">Lihat CV</button></p>
+    <p class="footer-links">
+      <button type="button" class="text-link" @click="show()">Lihat CV</button>
+      <a :href="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
   </footer>
 </template>
