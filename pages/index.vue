@@ -316,16 +316,16 @@ onUnmounted(() => {
         <h2>Two companies. The stack stays Vue.</h2>
         <ol class="timeline">
           <li v-for="(job, index) in experience" :key="job.company" v-rise="index * 80" class="job rise">
-            <div class="when">
-              <strong>{{ job.when }}</strong>
-              <span>{{ job.role }}</span>
+            <div class="job-head">
+              <div class="job-title">
+                <h3>{{ job.company }}</h3>
+                <span>{{ job.role }}</span>
+              </div>
+              <p class="job-when">{{ job.when }}</p>
             </div>
-            <div>
-              <h3>{{ job.company }}</h3>
-              <ul class="points">
-                <li v-for="point in job.points" :key="point">{{ point }}</li>
-              </ul>
-            </div>
+            <ul class="points">
+              <li v-for="point in job.points" :key="point">{{ point }}</li>
+            </ul>
           </li>
         </ol>
       </div>

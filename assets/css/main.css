@@ -657,30 +657,75 @@ section[id] { scroll-margin-top: calc(var(--header) + 12px); }
 .caps h3 { font-size: 1.15rem; font-weight: 580; letter-spacing: -0.02em; margin-bottom: 4px; }
 .caps p { color: var(--muted); font-size: 0.98rem; }
 
-.timeline { list-style: none; margin: 8px 0 0; padding: 0; }
+.timeline {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
 
 .job {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 28px;
-  padding: 28px 0;
-  border-top: 1px solid rgba(20, 32, 24, 0.12);
+  gap: 14px;
+  min-width: 0;
+  padding: 18px 16px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
 }
 
-.when strong {
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 600;
+.job-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px 20px;
+  min-width: 0;
 }
 
-.when span { color: var(--ink-muted); font-size: 14px; }
+.job-title { min-width: 0; flex: 1 1 220px; }
 
 .job h3 {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 0;
-  margin-bottom: 8px;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.job-title span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.job-when {
+  margin: 0;
+  flex: 0 1 auto;
+  color: var(--persimmon);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.job .points {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.job .points li {
+  min-width: 0;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+@media (min-width: 760px) {
+  .job { padding: 22px 22px 20px; }
+  .job .points { grid-template-columns: 1fr 1fr; gap: 12px 28px; }
 }
 
 .company { margin: 0 0 14px; color: var(--moss); font-weight: 600; }
@@ -1081,8 +1126,7 @@ html.js .rise.in {
   .card.is-feature,
   .case-layout,
   .finale-grid,
-  .bento,
-  .job { grid-template-columns: 1fr; }
+  .bento { grid-template-columns: 1fr; }
   .card.is-feature .card-copy,
   .card.is-feature .card-mock,
   .work-grid:has(> .card:only-child) > .card,
@@ -1156,7 +1200,6 @@ html.look-ai .case-hero h1,
 html.look-ai .next strong,
 html.look-ai .card h3,
 html.look-ai .job h3,
-html.look-ai .when strong,
 html.look-ai .degree,
 html.look-ai .school strong,
 html.look-ai .stats dd,
@@ -1225,6 +1268,13 @@ html.look-ai .card:hover {
 }
 
 html.look-ai .tile { border-radius: 24px; }
+
+html.look-ai .job {
+  border: 0;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: inset 0 0 0 1px rgba(28, 25, 22, 0.08);
+}
 
 html.look-ai .hero { padding-top: 48px; isolation: isolate; }
 html.look-ai .hero-grid { position: relative; z-index: 1; }
